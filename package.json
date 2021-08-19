@@ -1,0 +1,40 @@
+{
+  "name": "rextjs",
+  "version": "1.0.3",
+  "author": "mingdev <mingdev@163.com>",
+  "main": "./dist/cli.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup --config rollup.config.js"
+  },
+  "dependencies": {
+    "@rextjs/builder": "^1.0.7",
+    "@rextjs/server": "^1.0.2",
+    "consola": "^2.15.3",
+    "rimraf": "^3.0.2",
+    "yargs": "^17.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.3",
+    "rollup": "^2.48.0"
+  },
+  "bin": {
+    "rext": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

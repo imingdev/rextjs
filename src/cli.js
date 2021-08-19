@@ -20,3 +20,6 @@ export const run = () => yargs
     describe: 'config path',
   })
   .argv;
+
+export { default as Builder } from '@rextjs/builder';
+export { default as Server } from '@rextjs/server';

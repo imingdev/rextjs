@@ -1,14 +1,22 @@
 import path from 'path';
 import yargs from 'yargs';
-
+import RextBuilder from '@rextjs/builder';
+import RextServer from '@rextjs/server';
 import devHandle from './dev';
 import buildHandle from './build';
 import startHandle from './start';
 
+export const dev = devHandle;
+export const build = buildHandle;
+export const start = startHandle;
+
+export const Builder = RextBuilder;
+export const Server = RextServer;
+
 export const run = () => yargs
-  .command('dev', 'start dev server', ({ argv: { cwd, config } }) => devHandle(require(path.join(cwd, config))))
-  .command('build', 'build the project', ({ argv: { cwd, config } }) => buildHandle(require(path.join(cwd, config))))
-  .command('start', 'start the project', ({ argv: { cwd, config } }) => startHandle(require(path.join(cwd, config))))
+  .command('dev', 'start dev server', ({ argv: { cwd, config } }) => dev(require(path.join(cwd, config))))
+  .command('build', 'build the project', ({ argv: { cwd, config } }) => build(require(path.join(cwd, config))))
+  .command('start', 'start the project', ({ argv: { cwd, config } }) => start(require(path.join(cwd, config))))
   .option('cwd', {
     alias: 'cwd',
     default: process.cwd(),
@@ -20,6 +28,3 @@ export const run = () => yargs
     describe: 'config path',
   })
   .argv;
-
-export { default as Builder } from '@rextjs/builder';
-export { default as Server } from '@rextjs/server';
